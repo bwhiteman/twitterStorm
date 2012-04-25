@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+defaultTasks 'clean', 'assemble'
+repositories {
+    mavenCentral()
+    maven {
+    	url "http://clojars.org/repo"
+    }
+}
+
+sourceCompatibility = 1.6
+version = '0.1'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'TwitterStorm', 'Implementation-Version': version
+    }
+}
+
+dependencies {
+	testCompile group: 'storm', name: 'storm', version: '0.7.1'
+}
